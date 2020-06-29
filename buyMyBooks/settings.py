@@ -39,6 +39,9 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'users',
+    'books',
+
+    'cloudinary',
 ]
 
 AUTH_USER_MODEL = 'users.User'
@@ -85,7 +88,7 @@ DATABASES = {
         'USER': config('DB_USER'),
         'PASSWORD': config('DB_PASS'),
         'HOST': 'localhost',
-        'PORT': '',
+        'PORT': config("DB_PORT", default=5432, cast=int), # specifying the port
     }
 }
 
