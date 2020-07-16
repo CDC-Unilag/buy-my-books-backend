@@ -10,15 +10,14 @@ class User(AbstractUser):
             'unique': _('A user with that email already exists.'),
         }, db_index=True)
 
-    USERNAME_FIELD = 'email'
-    REQUIRED_FIELDS = []
+    REQUIRED_FIELDS = ['email']
 
 
 class Account(models.Model):
     types = (
-            ('B', 'BUYER' ),('S', 'SELLER')
+            ('B', 'BUYER'), ('S', 'SELLER')
             )
-    name = models.Charfield(max_length=15)   
+    name = models.CharField(max_length=15)
     username = models.CharField(max_length=15)
     email = models.EmailField()
     password = models.CharField(max_length=16)
